@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: juice-shop
   labels:
-    app: juice-shop
+    app: juice-shop-app
 spec:
   selector:
     matchLabels:
-      app: juice-shop
+      app: juice-shop-app
   replicas: 2
   template:
     metadata:
       labels:
-        app: juice-shop
+        app: juice-shop-app
     spec:
       containers:
       - name: juice-shop
