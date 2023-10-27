@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: juice-shop
 spec:
+  selector:
+    run: juice-shop
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
-  selector:
-    app: juice-shop
+  type: LoadBalancer
