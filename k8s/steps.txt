@@ -9,6 +9,8 @@ AWS_REGION=us-east-1
 EKS_CLUSTER_NAME=eksingressdemo
 
 
+aws eks update-kubeconfig --name eksingressdemo
+
 
 eksctl utils associate-iam-oidc-provider \
     --region ${AWS_REGION} \
