@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: juice-shop
+  namespace: juice-shop
+  name: deployment-juice-shop
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: juice-shop
+      app.kubernetes.io/name: app-juice-shop
+  replicas: 5
   template:
     metadata:
       labels:
-        app: juice-shop
+        app.kubernetes.io/name: app-juice-shop
     spec:
       containers:
-        - name: juice-shop
-          image: bkimminich/juice-shop
-          ports:
-            - containerPort: 3000
+      - image: bkimminich/juice-shop
+        imagePullPolicy: Always
+        name: app-juice-shop
+        ports:
+        - containerPort: 3000
