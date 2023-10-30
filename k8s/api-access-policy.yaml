@@ -1,12 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: api-access-policy
+  name: restrict-api-access
 spec:
-  podSelector:
+  podSelector:         
     matchLabels:
-      component: kube-apiserver
+      run: juice-shop   
+  policyTypes:
+  - Ingress
   ingress:
-    - from:
-      - ipBlock:
-          cidr: 192.168.0.0/24 # Replace with the desired IP range
+  - from:
+    - ipBlock:
+        cidr: 44.218.134.66/32
